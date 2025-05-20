@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-//12S23007 Joy Valeda Silalahi
+///12S23007 Joy Valeda Silalahi
 //12S23020 Rachel Simorangkir
 
 
