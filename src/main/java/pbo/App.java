@@ -8,10 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-/**
- * @author 12S23007 Joy Valeda Silalahi
- * @author 12S23020 Rachel Simorangkir
- */
+//12S23007 Joy Valeda Silalahi
+//12S23020 Rachel Simorangkir
 
 public class App {
 

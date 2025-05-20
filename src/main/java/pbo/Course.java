@@ -7,10 +7,8 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
-/**
- * @author 12S23007 Joy Valeda Silalahi
- * @author 12S23020 Rachel Simorangkir
- */
+//12S23007 Joy Valeda Silalahi
+//12S23020 Rachel Simorangkir
 
 
 @Entity
