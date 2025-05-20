@@ -13,7 +13,6 @@ public class App {
     private static final EntityManager entityManager = factory.createEntityManager();
 
     public static void main(String[] args) {
-        System.out.println("masuk");
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
