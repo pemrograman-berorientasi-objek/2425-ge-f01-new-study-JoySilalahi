@@ -4,6 +4,7 @@
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>pbo.Course</class>
     <class>pbo.Student</class>
+    <class>pbo.App</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:h2:./db/study-plan"></property>
       <property name="javax.persistence.jdbc.driver" value="org.h2.Driver"></property>
