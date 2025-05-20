@@ -8,47 +8,53 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-///12S23007 Joy Valeda Silalahi
+//12S23007 Joy Valeda Silalahi
 //12S23020 Rachel Simorangkir
 
 public class App {
+
     private static final String PERSISTENCE_UNIT_NAME = "study_plan_pu";
     private static EntityManagerFactory factory;
 
+    static {
+        factory = null;
+    }
+
     public static void main(String[] args) {
-        factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        if (factory == null) {
+            factory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT_NAME);
+        }
         EntityManager em = factory.createEntityManager();
         Scanner scanner = new Scanner(System.in);
 
         while (scanner.hasNextLine()) {
             String command = scanner.nextLine();
-            if (command.equals("---")) {
+            if ("---".equals(command)) { 
                 break;
             }
             String[] tokens = command.split("#");
 
-            if (tokens[0].equals("student-add")) {
-                String nim = tokens[1];
-                String name = tokens[2];
-                String program = tokens[3];
-                registerStudent(em, nim, name, program);
-            } else if (tokens[0].equals("student-show-all")) {
-                showAllStudents(em);
-            } else if (tokens[0].equals("course-add")) {
-                String code = tokens[1];
-                String name = tokens[2];
-                int semester = Integer.parseInt(tokens[3]);
-                int credits = Integer.parseInt(tokens[4]);
-                addCourse(em, code, name, semester, credits);
-            } else if (tokens[0].equals("course-show-all")) {
-                showAllCourses(em);
-            } else if (tokens[0].equals("enroll")) {
-                String nim = tokens[1];
-                String courseCode = tokens[2];
-                enrollStudentInCourse(em, nim, courseCode);
-            } else if (tokens[0].equals("student-show")) {
-                String nim = tokens[1];
-                showStudentDetail(em, nim);
+            switch (tokens[0]) { 
+                case "student-add":
+                    registerStudent(em, tokens[1], tokens[2], tokens[3]);
+                    break;
+                case "student-show-all":
+                    showAllStudents(em);
+                    break;
+                case "course-add":
+                    addCourse(em, tokens[1], tokens[2], Integer.parseInt(tokens[3]), Integer.parseInt(tokens[4]));
+                    break;
+                case "course-show-all":
+                    showAllCourses(em);
+                    break;
+                case "enroll":
+                    enrollStudentInCourse(em, tokens[1], tokens[2]);
+                    break;
+                case "student-show":
+                    showStudentDetail(em, tokens[1]);
+                    break;
+                default:
+                    break;
             }
         }
 
